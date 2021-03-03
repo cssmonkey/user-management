@@ -5,12 +5,19 @@
   "main": "src/index.tsx",
   "scripts": {
     "start": "webpack serve",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --env=jsdom",
+    "test:coverage": "jest --coverage",
     "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "pretty": "pretty-quick --branch development",
+    "prettier-format": "prettier --config .prettierrc '**/*.{json,js,jsx,ts,tsx,css,scss,md}' --write"
   },
   "author": "Sean Jones",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cssmonkey/user-management.git"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^17.0.1",
@@ -62,7 +69,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run pretty -- --staged"
+      "pre-commit": "npm run lint && npm run pretty -- --staged",
+      "pre-push": "npm run test -- --bail"
     }
   }
 }
