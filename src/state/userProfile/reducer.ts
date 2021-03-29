@@ -4,7 +4,7 @@ import { fetchUserById } from "./actions";
 
 interface UserState {
   name?: string;
-  userName?: string;
+  username?: string;
 }
 
 const initialState = {} as UserState;
