@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
 
-import { getUsername } from "../../state/userProfile/selectors";
+import { getUsername } from "state/userProfile/selectors";
 
 const UserHeader: FC = () => {
   const userName = useSelector(getUsername);

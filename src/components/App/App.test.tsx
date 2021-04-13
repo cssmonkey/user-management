@@ -1,5 +1,5 @@
 import React from "react";
-import renderConnected from "../../utilities/test/renderConnected";
+import renderConnected from "utilities/test/renderConnected";
 
 import App from "./App";
 
