@@ -5,13 +5,7 @@ import { getUsername } from "../../state/userProfile/selectors";
 
 const UserHeader: FC = () => {
   const userName = useSelector(getUsername);
-  return (
-    <div className="user-profile">
-      <span>
-        Logged in as <strong>{userName}</strong>
-      </span>
-    </div>
-  );
+  return <div className="user-profile">Logged in as {userName}</div>;
 };
 
 export default UserHeader;

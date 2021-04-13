@@ -7,7 +7,7 @@ interface UserState {
   username?: string;
 }
 
-const initialState = {} as UserState;
+export const initialState = {} as UserState;
 
 const userProfileReducer = createReducer(initialState, (builder) => {
   builder.addCase(fetchUserById.fulfilled, (state, action) => {
