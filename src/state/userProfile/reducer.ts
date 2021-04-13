@@ -4,10 +4,10 @@ import { fetchUserById } from "./actions";
 
 interface UserState {
   name?: string;
-  userName?: string;
+  username?: string;
 }
 
-const initialState = {} as UserState;
+export const initialState = {} as UserState;
 
 const userProfileReducer = createReducer(initialState, (builder) => {
   builder.addCase(fetchUserById.fulfilled, (state, action) => {

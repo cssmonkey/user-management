@@ -1,24 +1,28 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { render } from "@testing-library/react";
-
-import store from "../../state/store";
+import renderConnected from "../../utilities/test/renderConnected";
 
 import App from "./App";
 
-const setup = () => {
-  const container = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-  return container;
-};
+const setup = (initialState = {}) =>
+  renderConnected({
+    ui: <App />,
+    initialState,
+  });
 
 describe("App", () => {
-  it("renders app", () => {
-    const { container } = setup();
-
+  it("renders Loader when userProfile not loaded", () => {
+    const { container } = setup({
+      userProfile: {},
+    });
+    const app = container.querySelector(".loader");
+    expect(app).toBeInTheDocument();
+  });
+  it("renders App when userProfile loaded", () => {
+    const { container } = setup({
+      userProfile: {
+        username: "Steve",
+      },
+    });
     const app = container.querySelector(".app");
     expect(app).toBeInTheDocument();
   });
