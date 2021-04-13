@@ -35,6 +35,7 @@ module.exports = () => ({
       api: path.resolve(sourcePath, "api/"),
       assets: path.resolve(sourcePath, "assets/"),
       components: path.resolve(sourcePath, "components/"),
+      pages: path.resolve(sourcePath, "pages/"),
       state: path.resolve(sourcePath, "state/"),
       styles: path.resolve(sourcePath, "styles/"),
       utilities: path.resolve(sourcePath, "utilities/"),

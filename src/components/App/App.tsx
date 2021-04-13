@@ -6,6 +6,7 @@ import { getUsername } from "state/userProfile/selectors";
 
 import Loader from "../Loader/Loader";
 import SiteHeader from "../SiteHeader/SiteHeader";
+import LandingPage from "pages/LandingPage/LandingPage";
 
 import "styles/app.scss";
 
@@ -15,7 +16,7 @@ const App: FC = () => {
 
   useEffect(() => {
     if (!username) {
-      dispatch(fetchUserById());
+      setTimeout(() => dispatch(fetchUserById()), 2400);
     }
   }, [dispatch]);
 
@@ -28,6 +29,7 @@ const App: FC = () => {
   return (
     <div className="app bg-gray-50 min-h-screen">
       <SiteHeader />
+      <LandingPage />
     </div>
   );
 };
