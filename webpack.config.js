@@ -33,6 +33,7 @@ module.exports = () => ({
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     alias: {
       api: path.resolve(sourcePath, "api/"),
+      assets: path.resolve(sourcePath, "assets/"),
       components: path.resolve(sourcePath, "components/"),
       state: path.resolve(sourcePath, "state/"),
       styles: path.resolve(sourcePath, "styles/"),
@@ -68,6 +69,17 @@ module.exports = () => ({
           },
         ],
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        include: path.resolve(sourcePath, "assets/images"),
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "assets/images/",
+          },
+        },
       },
     ],
   },

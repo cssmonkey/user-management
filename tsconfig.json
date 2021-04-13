@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "api/*": ["./src/api/*"],
+      "assets/*": ["./src/assets/*"],
       "components/*": ["./src/components/*"],
       "state/*": ["./src/state/*"],
       "styles/*": ["./src/styles/*"],

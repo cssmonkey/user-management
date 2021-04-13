@@ -5,7 +5,7 @@ import { fetchUserById } from "state/userProfile/actions";
 import { getUsername } from "state/userProfile/selectors";
 
 import Loader from "../Loader/Loader";
-import UserHeader from "../UserHeader/UserHeader";
+import SiteHeader from "../SiteHeader/SiteHeader";
 
 import "styles/app.scss";
 
@@ -27,7 +27,7 @@ const App: FC = () => {
 
   return (
     <div className="app bg-gray-50 min-h-screen">
-      <UserHeader />
+      <SiteHeader />
     </div>
   );
 };
