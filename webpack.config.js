@@ -1,9 +1,9 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const buildPath = path.join(__dirname, './dist');
-const sourcePath = path.join(__dirname, './src');
-const publicPath = path.join(__dirname, './public');
+const buildPath = path.join(__dirname, "./dist");
+const sourcePath = path.join(__dirname, "./src");
+const publicPath = path.join(__dirname, "./public");
 
 module.exports = () => ({
   entry: {
@@ -11,13 +11,13 @@ module.exports = () => ({
   },
   output: {
     path: buildPath,
-    filename: '[name].[hash].js',
-    chunkFilename: '[name].[hash].js',
+    filename: "[name].[hash].js",
+    chunkFilename: "[name].[hash].js",
   },
-  mode: 'development',
-  devtool: 'source-map',
+  mode: "development",
+  devtool: "source-map",
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
     historyApiFallback: true,
     compress: true,
     open: true,
@@ -29,8 +29,15 @@ module.exports = () => ({
     minimize: false,
   },
   resolve: {
-    modules: ['node_modules'],
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    modules: ["node_modules"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    alias: {
+      api: path.resolve(sourcePath, "api/"),
+      components: path.resolve(sourcePath, "components/"),
+      state: path.resolve(sourcePath, "state/"),
+      styles: path.resolve(sourcePath, "styles/"),
+      utilities: path.resolve(sourcePath, "utilities/"),
+    },
   },
   module: {
     rules: [
@@ -38,23 +45,23 @@ module.exports = () => ({
         test: /\.(ts)x?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader',
+          loader: "ts-loader",
         },
       },
       {
         test: /\.(scss|css)$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader",
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sourceMap: true,
             },
@@ -67,9 +74,9 @@ module.exports = () => ({
 
   plugins: [
     new HtmlWebpackPlugin({
-      chunks: ['vendor', 'app'],
-      filename: 'index.html',
-      template: path.join(publicPath, '/index.html'),
+      chunks: ["vendor", "app"],
+      filename: "index.html",
+      template: path.join(publicPath, "/index.html"),
     }),
   ],
 });
