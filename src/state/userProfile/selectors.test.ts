@@ -9,6 +9,7 @@ describe("UserProfile selectors", () => {
         userProfile: {
           username: "Steve",
         },
+        users: { list: null },
       };
       expect(getUsername(state)).toBe("Steve");
     });

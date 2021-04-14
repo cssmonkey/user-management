@@ -1,13 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
 
+import { User } from "../types";
 import { fetchUserById } from "./actions";
 
-interface UserState {
-  name?: string;
-  username?: string;
-}
-
-export const initialState = {} as UserState;
+export const initialState = {} as User;
 
 const userProfileReducer = createReducer(initialState, (builder) => {
   builder.addCase(fetchUserById.fulfilled, (state, action) => {
