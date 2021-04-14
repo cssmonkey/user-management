@@ -1,6 +1,6 @@
-import axios, { AxiosPromise, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 class ApiService {
-  async callApi(config: AxiosRequestConfig): Promise<AxiosPromise<AxiosResponse>> {
+  async callApi<T>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return axios.request(config);
   }
 }

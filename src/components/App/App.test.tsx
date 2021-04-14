@@ -13,6 +13,7 @@ describe("App", () => {
   it("renders Loader when userProfile not loaded", () => {
     const { container } = setup({
       userProfile: {},
+      users: { list: null },
     });
     const app = container.querySelector(".loader");
     expect(app).toBeInTheDocument();
@@ -22,6 +23,7 @@ describe("App", () => {
       userProfile: {
         username: "Steve",
       },
+      users: { list: null },
     });
     const app = container.querySelector(".app");
     expect(app).toBeInTheDocument();
