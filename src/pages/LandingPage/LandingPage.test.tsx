@@ -12,10 +12,7 @@ const setup = (initialState = {}) =>
 
 describe("LandingPage", () => {
   it("renders", () => {
-    setup({
-      userProfile: {},
-      users: { list: null },
-    });
+    setup();
 
     const heading = screen.getByText("Landing page");
     expect(heading).toBeInTheDocument();

@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import configureStore, { MockStore } from "redux-mock-store";
 import thunk from "redux-thunk";
 
+import { reducers } from "state/rootReducer";
+
 interface RenderConnected {
   ui: JSX.Element;
   initialState: Record<string, unknown>;
@@ -18,7 +20,7 @@ const middleware = [thunk];
 const mockStore = configureStore(middleware);
 
 export const makeStore = (initialState: Record<string, unknown>): MockStore =>
-  mockStore(initialState);
+  mockStore({ ...reducers, ...initialState });
 
 const renderConnected = ({
   ui,
