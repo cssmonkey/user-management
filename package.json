@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "webpack serve",
+    "build": "rimraf dist && NODE_ENV=production webpack --config webpack.prod.js",
+    "start": "webpack serve --config webpack.dev.js",
     "test": "jest --env=jsdom",
     "test:coverage": "jest --coverage",
     "lint": "eslint . --ext .ts,.tsx",
@@ -57,12 +58,15 @@
     "html-webpack-plugin": "^5.2.0",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
+    "mini-css-extract-plugin": "^1.5.0",
     "postcss": "^8.2.6",
     "postcss-loader": "^5.0.0",
     "prettier": "^2.2.1",
     "prettier-quick": "0.0.5",
     "pretty-quick": "^3.1.0",
     "redux-mock-store": "^1.5.4",
+    "resolve-url-loader": "^3.1.2",
+    "rimraf": "^3.0.2",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
@@ -71,8 +75,10 @@
     "ts-loader": "^8.0.17",
     "typescript": "^4.2.2",
     "webpack": "^5.24.2",
+    "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "husky": {
     "hooks": {
