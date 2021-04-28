@@ -4,9 +4,13 @@ import apiConfig from "api/apiConfig";
 
 import { User } from "../types";
 
-export const fetchUserById = createAsyncThunk("users/fetchById", async () => {
+export const ACTION_TYPES = {
+  FETCH_USER_BY_ID: "users/fetchById",
+} as const;
+
+export const fetchUserById = createAsyncThunk("users/fetchById", async (userId: string) => {
   const response = await ApiService.callApi<User>({
-    url: apiConfig.endpoints.userProfile("1"),
+    url: apiConfig.endpoints.userProfile(userId),
     method: "GET",
   });
   return response.data;

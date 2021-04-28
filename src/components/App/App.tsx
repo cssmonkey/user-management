@@ -16,7 +16,7 @@ const App: FC = () => {
 
   useEffect(() => {
     if (!username) {
-      setTimeout(() => dispatch(fetchUserById()), 2400);
+      setTimeout(() => dispatch(fetchUserById("1")), 2400);
     }
   }, [dispatch]);
 

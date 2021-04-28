@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUsersList } from "state/users/selectors";
 import { fetchUsers } from "state/users/actions";
 
+import "./users-table.scss";
+
 const UsersTable: FC = () => {
   const dispatch = useDispatch();
   const usersList = useSelector(getUsersList);
@@ -19,26 +21,28 @@ const UsersTable: FC = () => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Company</th>
-        </tr>
-      </thead>
-      <tbody>
-        {usersList.map(({ name, email, company, username }, i) => (
-          <tr key={i}>
-            <td>{name}</td>
-            <td>{email}</td>
-            <td>{company.name}</td>
-            <td>{username}</td>
+    <div className="users-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Company</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {usersList.map(({ name, email, company, username }, i) => (
+            <tr key={i}>
+              <td>{name}</td>
+              <td>{email}</td>
+              <td>{company.name}</td>
+              <td>{username}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
