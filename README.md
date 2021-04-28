@@ -1,8 +1,8 @@
-# user-management
+# user-management-app
 
 ## Overview
 
-This is a demo app designed to demonstrate my React experience.
+This is a demo app designed to demonstrate my React experience. The project UI consists of a single page which diplays a list of users from an Admin perspective.
 
 ## Setup
 
