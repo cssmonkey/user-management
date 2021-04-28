@@ -6,12 +6,14 @@
   "scripts": {
     "build": "rimraf dist && NODE_ENV=production webpack --config webpack.prod.js",
     "start": "webpack serve --config webpack.dev.js",
+    "serve": "node src/server.js",
     "test": "jest --env=jsdom",
     "test:coverage": "jest --coverage",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --fix",
     "pretty": "pretty-quick --branch development",
-    "prettier-format": "prettier --config .prettierrc '**/*.{json,js,jsx,ts,tsx,css,scss,md}' --write"
+    "prettier-format": "prettier --config .prettierrc '**/*.{json,js,jsx,ts,tsx,css,scss,md}' --write",
+    "postinstall": "npm run build"
   },
   "author": "Sean Jones",
   "license": "ISC",
@@ -23,6 +25,7 @@
     "@reduxjs/toolkit": "^1.5.0",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
+    "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
@@ -85,5 +88,8 @@
       "pre-commit": "npm run lint && npm run pretty -- --staged",
       "pre-push": "npm run test -- --bail"
     }
+  },
+  "engines": {
+    "node": "12.14.1"
   }
 }
